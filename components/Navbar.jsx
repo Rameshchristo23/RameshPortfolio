@@ -112,7 +112,7 @@ export default function Navbar() {
   return (
     <Header>
       <Nav>
-        <Logo className="logo">Santhosh.</Logo>
+        <Logo className="logo">Ramesh.</Logo>
 
         {/* Desktop Menu */}
         <DesktopMenu>

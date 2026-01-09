@@ -100,7 +100,7 @@ export default function HomePage() {
             <div className="hero-image-bg"></div>
 
             <div className="hero-image-wrapper">
-              <img src={content.hero?.image || "/assets/santhosh.png"} alt="Ramesh" />
+              <img src={content.hero?.image || "/assets/ram.png"} alt="Ramesh" />
             </div>
           </div>
         </div>

@@ -25,7 +25,7 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-text">
           <h2 className="line-1">
-            {content.hero.title} <span>Santhosh Kumar</span>
+            {content.hero.title} <span>Ramesh</span>
           </h2>
           <p className="line-2">{content.hero.subtitle}</p>
 
