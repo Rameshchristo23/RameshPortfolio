@@ -1,0 +1,604 @@
+@import "tailwindcss";
+/* ----------------------------------------------
+   TAILWIND BASE IMPORTS
+---------------------------------------------- */
+
+
+/* ----------------------------------------------
+   GLOBAL RESET
+---------------------------------------------- */
+/* ----------------------------------------------
+   SPACE GROTESK LOCAL FONT
+---------------------------------------------- */
+
+@font-face {
+  font-family: 'SpaceGrotesk';
+  src: url('/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SpaceGrotesk';
+  src: url('/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SpaceGrotesk';
+  src: url('/fonts/SpaceGrotesk-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SpaceGrotesk';
+  src: url('/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply globally */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  font-family: 'SpaceGrotesk', sans-serif;
+}
+
+/* ----------------------------------------------
+   THEME VARIABLES
+---------------------------------------------- */
+:root {
+  --bg-primary: #0a0e27;
+  --bg-secondary: #1a1f3a;
+  --accent: #00d4ff;
+  --accent-2: #ff006e;
+  --accent-3: #8338ec;
+  --text: #ffffff;
+  --text-dim: #a8b2d1;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------
+   ANIMATED GRADIENT BACKGROUND
+---------------------------------------------- */
+.gradient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(
+    45deg,
+    var(--bg-primary) 0%,
+    #1a1f3a 25%,
+    #0f1729 50%,
+    #1a1f3a 75%,
+    var(--bg-primary) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ----------------------------------------------
+   FLOATING ORBS
+---------------------------------------------- */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float 20s infinite;
+  z-index: -1;
+}
+
+.orb1 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent);
+  top: -200px;
+  left: -200px;
+}
+
+.orb2 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-2);
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -5s;
+}
+
+.orb3 {
+  width: 350px;
+  height: 350px;
+  background: var(--accent-3);
+  top: 50%;
+  right: 10%;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(100px, -100px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-50px, 100px) rotate(240deg);
+  }
+}
+
+/* ----------------------------------------------
+   THEME TOGGLE
+---------------------------------------------- */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(20deg);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+}
+
+/* ----------------------------------------------
+   NAVBAR
+---------------------------------------------- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 1.5rem 5%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: rgba(26, 31, 58, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ----------------------------------------------
+   HERO SECTION
+---------------------------------------------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  position: relative;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1400px;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-image {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  border-radius: 25% 0%;
+  background: linear-gradient(#000, #000) padding-box,
+              linear-gradient(90deg, #ff00c6, #00eaff, #ee5903) border-box;
+  animation: borderMove 3s linear infinite;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 60px rgba(0, 212, 255, 0.3);
+}
+
+@keyframes borderMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+
+.hero-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image-bg {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  /* background: linear-gradient(135deg, var(--accent), var(--accent-3)); */
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+}
+
+.hero h2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.hero h2 span {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: shimmer 3s infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero p {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--text-dim);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+/* ----------------------------------------------
+   BUTTON
+---------------------------------------------- */
+.btn {
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-3));
+  color: var(--text);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+}
+
+/* ----------------------------------------------
+   SCROLL INDICATOR
+---------------------------------------------- */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 50px;
+  border: 2px solid var(--accent);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.scroll-indicator::before {
+  content: "";
+  width: 6px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 3px;
+  animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(20px); opacity: 0; }
+}
+
+/* ----------------------------------------------
+   HORIZONTAL PROJECTS SCROLL
+---------------------------------------------- */
+.horizontal-wrapper {
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 4rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.horizontal-scroll {
+  display: flex;
+  gap: 3rem;
+  padding: 2rem 5%;
+  will-change: transform;
+}
+
+.h-card {
+  min-width: 400px;
+  height: 500px;
+  background: rgba(26, 31, 58, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.h-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+}
+
+/* ----------------------------------------------
+   FOOTER
+---------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 3rem 5%;
+  background: rgba(26, 31, 58, 0.5);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-dim);
+}
+
+/* ----------------------------------------------
+   RESPONSIVE BREAKPOINTS
+---------------------------------------------- */
+@media (max-width: 768px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+  }
+
+  nav ul {
+    gap: 1.5rem;
+  }
+
+  .hero-content {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-image-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-image-bg {
+    width: 350px;
+    height: 350px;
+  }
+
+  .h-card {
+    min-width: 300px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    gap: 1rem;
+  }
+
+  .hero-image-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero-image-bg {
+    width: 300px;
+    height: 300px;
+  }
+
+  .h-card {
+    min-width: 250px;
+    height: 350px;
+    font-size: 1.5rem;
+  }
+}
+
+    .hero-image {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      width: 450px;
+      height: 450px;
+      
+  border: 4px solid transparent;
+  border-radius: 25% 0%;
+  background: linear-gradient(#000, #000) padding-box,
+              linear-gradient(90deg, #ff00c6, #00eaff, #ee5903) border-box;
+  animation: borderMove 3s linear infinite;
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.3);
+    }
+@keyframes borderMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+    .hero-image-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(0, 212, 255, 0.3),
+        transparent
+      );
+      animation: rotate 4s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image-bg {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, #cdcdcd, #8338ec);
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.1); opacity: 0.6; }
+    }

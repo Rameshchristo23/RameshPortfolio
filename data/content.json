@@ -1,0 +1,133 @@
+{
+  "personal": {
+    "name": "Santhosh Kumar",
+    "role": "Frontend Developer",
+    "phone": "7358437188",
+    "email": "rameshchristo33@gmail.com",
+    "location": "Chennai"
+  },
+
+  "profile": "Dedicated and experienced software developer with over 5+ years of expertise in web development technologies, including HTML, JavaScript, jQuery, React.js, Next.js, TailwindCSS. Seeking a challenging role where I can leverage my extensive knowledge in front-end to contribute to innovative projects, improve user experience, and drive technological advancements within a dynamic and growth-oriented organization.",
+
+  "skills": [
+    "HTML & CSS",
+    "JavaScript & jQuery",
+    "ReactJS & Redux",
+    "Next.js",
+    "Tailwind CSS",
+    "Photoshop"
+  ],
+
+  "languages": ["English", "Tamil"],
+
+  "education": [
+    {
+      "year": "2012 - 2016",
+      "degree": "BE (CSE) - 64%",
+      "institution": "Apollo Engineering College"
+    },
+    {
+      "year": "2012 - XII - 70%",
+      "institution": "SSEVM Hr Sec School"
+    },
+    {
+      "year": "2010 - X - 80%",
+      "institution": "SSEVM Hr Sec School"
+    }
+  ],
+
+  "experience": [
+    {
+      "company": "Bics Global / Chennai",
+      "period": "2019 - Present",
+      "role": "Front End Developer",
+      "details": [
+        "Developed Responsive Web Applications using HTML, CSS, JavaScript, React & Next.js",
+        "Improved UI/UX with cross-browser compatible designs",
+        "Implemented authentication systems using JWT, OAuth, Firebase, Auth0",
+        "Version control with Git/GitHub/Bitbucket, Agile participation",
+        "Integrated REST & GraphQL APIs",
+        "Continuous learning and adapting to new technologies"
+      ]
+    },
+    {
+      "company": "Formee Education Portal",
+      "period": "March 2020 - December 2020",
+      "role": "Front End Developer",
+      "details": [
+        "B2B2C Educational admissions portal",
+        "React.js frontend with Redux state management",
+        "Separate portals for Students, Universities, and Admin"
+      ]
+    },
+    {
+      "company": "Distributor Gateway (AcademyPlus)",
+      "period": "March 2023 - November 2023",
+      "role": "Front End Developer",
+      "details": [
+        "B2B Ecommerce for wholesalers → retailers",
+        "Developed frontend using Next.js",
+        "Used Context API for state management"
+      ]
+    },
+    {
+      "company": "Trowbridge Homes",
+      "period": "March 2019 - December 2019",
+      "role": "Front End Developer",
+      "details": [
+        "Built 17 WordPress sites for different USA locations",
+        "Websites for plots & apartments sales"
+      ]
+    },
+    {
+      "company": "Emailers (Marketing Cloud)",
+      "period": "November 2020 - December 2022",
+      "role": "Front End Developer",
+      "details": [
+        "Email marketing templates & automation",
+        "Clients: Pharmagenius, DAcademyPlus, VisionCare, DuVal"
+      ]
+    },
+    {
+      "company": "AHK Distributor Gateway",
+      "period": "January 2024 - December 2024",
+      "role": "Front End Developer",
+      "details": [
+        "B2B ecommerce for keychains",
+        "Developed with HTML & CSS",
+        "ContextAPI for state management"
+      ]
+    },
+    {
+      "company": "AHK Reboot",
+      "period": "Jan 2025 - Present",
+      "role": "Front End Developer",
+      "details": [
+        "Migrated PHP/PrestaShop to Next.js + Drupal",
+        "Improved performance, UX, and scalability",
+        "Drupal as Headless CMS"
+      ]
+    },
+    {
+      "company": "AHK ChatBot",
+      "period": "April 2025 - April 2025",
+      "role": "Front End Developer",
+      "details": [
+        "Rebuilt Dialogflow chatbot using Python + JS + HTML/CSS",
+        "Shows quotes & order details to customers",
+        "Handled API flow with pure JavaScript",
+        "Integrated AI responses inside chatbot"
+      ]
+    }
+  ],
+
+  "projects": [
+    "Formee Education Portal",
+    "Distributor Gateway",
+    "AHK Reboot",
+    "AHK ChatBot",
+    "Trowbridge Homes",
+    "Bics Global Apps",
+    "Email Marketing Cloud"
+  ]
+}
