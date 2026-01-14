@@ -1,5 +1,8 @@
 "use client";
+import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import gsap from "gsap";
+
 
 // === Animations ===
 const float = keyframes`
@@ -93,11 +96,21 @@ const Inner = styled.div`
 
 
 export default function GlassCube({ image }) {
+    const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  // Ensure DOM styles match on hydration
+  gsap.set(".glass-inner", { rotate: 0 });
+  gsap.set(".shape-main", { rotate: 12 });
+  gsap.set(".shape-back", { rotate: -6, scale: 0.9 });
+}, []);
+if (!mounted) return null;
   return (
     <GlassWrapper>
       <CubeContainer>
-        <ShapeMain />
-        <ShapeBack />
+        <ShapeMain className="shape-main"/>
+        <ShapeBack className="shape-back"/>
 
         {/* Top-right floating ball */}
         <FloatParticle
@@ -113,7 +126,7 @@ export default function GlassCube({ image }) {
           delay="2s"
         />
 
-        <Inner>
+        <Inner className="glass-inner">
           <img src={image} alt="Profile" />
         </Inner>
       </CubeContainer>
