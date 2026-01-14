@@ -1,4 +1,6 @@
 "use client";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
@@ -232,12 +234,30 @@ export default function ContactPage() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Message sent successfully!');
-    setFormData({ name: '', email: '', message: '' });
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      toast.error("Failed to send message. Try again.");
+    }
+  } catch (error) {
+    console.error(error);
+    toast.error("Something went wrong!");
+  }
+};
+
 
   const handleChange = (e) => {
     setFormData({
@@ -248,6 +268,7 @@ export default function ContactPage() {
 
   return (
     <PageContainer>
+      <ToastContainer position="top-right" autoClose={3000} />
       <FloatingDecoration size={300} color="#00d4ff" top={10} left={10} duration={6} delay={0} />
       <FloatingDecoration size={250} color="#ff006e" top={60} left={80} duration={8} delay={1} />
       <FloatingDecoration size={200} color="#8338ec" top={80} left={20} duration={7} delay={2} />
