@@ -35,7 +35,7 @@ const DesktopMenu = styled.ul`
   margin: 0;
   padding: 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1180px) {
     display: flex;
   }
 
@@ -56,12 +56,12 @@ const DesktopMenu = styled.ul`
 
 const HamburgerButton = styled.div`
   display: block;
-  color: white;
+  color: var(--text);
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1180px) {
     display: none;
   }
 `;
@@ -72,7 +72,7 @@ const ThemeToggleWrapper = styled.div`
   top: 50%;
   transform: translateY(-50%);
 
-  @media (min-width: 768px) {
+  @media (min-width: 1180px) {
     position: static;
     transform: none;
   }
@@ -81,7 +81,7 @@ const ThemeToggleWrapper = styled.div`
 const MobileMenu = styled.div`
   display: block;
   margin-top: 1rem;
-  background: rgba(26, 31, 58, 0.7);
+  background: var(bg-primary);
   backdrop-filter: blur(24px);
   border-radius: 12px;
   padding: 1rem;
@@ -89,7 +89,7 @@ const MobileMenu = styled.div`
   margin-right: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
-  @media (min-width: 768px) {
+  @media (min-width: 1180px) {
     display: none;
   }
 
@@ -150,8 +150,8 @@ export default function Navbar() {
           {/* <Link href="/experience" onClick={() => setOpen(false)}>Experience</Link> */}
           <Link href="/projects" onClick={() => setOpen(false)}>Projects</Link>
           {/* <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link> */}
-           <Link href="/achievements" onClick={() => setOpen(false)}>Achievements</Link>
-    <Link href="/testimonials" onClick={() => setOpen(false)}>Testimonials</Link>
+           <Link href="/awards" onClick={() => setOpen(false)}>Achievements</Link>
+    <Link href="/testimonial" onClick={() => setOpen(false)}>Testimonials</Link>
     <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
         </MobileMenu>
       )}
