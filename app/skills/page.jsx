@@ -32,7 +32,7 @@ const shimmer = keyframes`
 
 const Container = styled.div`
   padding: 8rem 1.5rem 5rem;
-  color: white;
+  color: var(--text);
   max-width: 80rem;
   margin: 0 auto;
   position: relative;

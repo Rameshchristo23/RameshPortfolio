@@ -1,7 +1,7 @@
 {
   "personal": {
     "name": "Ramesh A",
-    "role": "Frontend Developer",
+    "role": "FullStack Developer",
     "phone": "7358437188",
     "email": "rameshchristo33@gmail.com",
     "location": "Chennai"
@@ -15,7 +15,12 @@
     "ReactJS & Redux",
     "Next.js",
     "Tailwind CSS",
-    "Photoshop"
+    "Photoshop",
+    "NodeJs",
+    "Illustrator",
+    "ExpressJs",
+    "Figma",
+    "MongoDB"
   ],
 
   "languages": ["English", "Tamil"],
@@ -122,12 +127,50 @@
   ],
 
   "projects": [
-    "Formee Education Portal",
-    "Distributor Gateway",
-    "AHK Reboot",
-    "AHK ChatBot",
-    "Trowbridge Homes",
-    "Bics Global Apps",
-    "Email Marketing Cloud"
-  ]
+  {
+    "name": "Formee Education Portal",
+    "description": "A B2B2C admissions portal with separate dashboards built using React & Redux.",
+    "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZWR1Y2F0aW9ufGVufDB8fDB8fHww"
+  },
+  {
+    "name": "Distributor Gateway",
+    "description": "Wholesale B2B ecommerce platform built with Next.js and Context API.",
+    "image": "https://thumbs.dreamstime.com/b/modern-pharmaceutical-warehouse-interior-rows-tall-shelves-holding-neatly-organized-medication-medical-supplies-boxes-395723167.jpg"
+  },
+  {
+    "name": "AHK Reboot",
+    "description": "Migrated legacy PHP/PrestaShop website into a scalable Next.js + Drupal architecture.",
+    "image": "https://image.made-in-china.com/318f0j00jtLYMNDGYhqI/-MP4.webp"
+  },
+  {
+    "name": "AHK ChatBot",
+    "description": "AI-powered chatbot showing order details, quotes, and flow-based responses.",
+    "image": "https://st3.depositphotos.com/9439220/14469/i/450/depositphotos_144695521-stock-photo-chatbot-concept-man-holding-smartphone.jpg"
+  },
+  {
+    "name": "Trowbridge Homes",
+    "description": "17 real estate websites for plots & apartments in the USA.",
+    "image": "https://images.unsplash.com/photo-1511909022865-a30191182d6d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG91c2UlMjBuaWdodHxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "name": "Bics Global Apps",
+    "description": "Internal apps built for HR, sales dashboards & workflow management.",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvbXBhbnl8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "name": "Email Marketing Cloud",
+    "description": "Responsive email templates and marketing automation flows.",
+    "image": "https://st.depositphotos.com/1140262/2271/i/450/depositphotos_22715635-stock-photo-distributing-information-in-a-digital.jpg"
+  },
+  {
+    "name": "Klaviyo",
+    "description": "I am an Email Marketing & CRM Automation Specialist with strong hands-on experience in Salesforce Marketing Cloud and Klaviyo.",
+    "image": "https://www.shutterstock.com/image-photo/crm-customer-relationship-management-concept-600nw-2473867597.jpg"
+  },
+  {
+    "name": "MavenDX+",
+    "description": "MavenDX+ is an AI-powered application that instantly generates professional, customizable email templates from simple text prompts—saving time and ensuring consistent communication quality.",
+    "image": "https://www.teneo.ai/_next/image?url=https%3A%2F%2Fteneo.fun%2Fwp-content%2Fuploads%2F2025%2F12%2Fgenesys-teneo-10-days-1-min.png&w=3840&q=75"
+  }
+]
 }

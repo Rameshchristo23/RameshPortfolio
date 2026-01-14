@@ -21,7 +21,9 @@ export default function RootLayout({ children }) {
         <ThemeProvider attribute="class" defaultTheme="dark">
           <CursorEffect />
           <Navbar />
+          <div className="pagebg">
           {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

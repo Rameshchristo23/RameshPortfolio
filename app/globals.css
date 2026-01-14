@@ -61,15 +61,34 @@ body {
 /* ----------------------------------------------
    THEME VARIABLES
 ---------------------------------------------- */
+/* -----------------------------
+   LIGHT MODE THEME VARIABLES
+------------------------------ */
 :root {
-  --bg-primary: #0a0e27;
-  --bg-secondary: #1a1f3a;
-  --accent: #00d4ff;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f8;
+  --accent: #007bff;
   --accent-2: #ff006e;
-  --accent-3: #8338ec;
-  --text: #ffffff;
-  --text-dim: #a8b2d1;
+  --accent-3: #6f42c1;
+  --text: #0a0e27;
+  --text-dim: #4a4f60;
+  --card-bg: 0, 0, 0;
 }
+
+/* -----------------------------
+   DARK MODE THEME VARIABLES
+------------------------------ */
+.dark {
+  --bg-primary: rgb(10, 14, 39);
+  --bg-secondary: rgb(26, 31, 58);
+  --accent: rgb(0, 212, 255);
+  --accent-2: rgb(255, 0, 110);
+  --accent-3: rgb(131, 56, 236);
+  --text: rgb(255, 255, 255);
+  --text-dim: rgb(168, 178, 209);
+  --card-bg: 255, 255, 255;
+}
+
 
 body {
   background: var(--bg-primary);
@@ -88,14 +107,14 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(
+  /* background: linear-gradient(
     45deg,
     var(--bg-primary) 0%,
     #1a1f3a 25%,
     #0f1729 50%,
     #1a1f3a 75%,
     var(--bg-primary) 100%
-  );
+  ); */
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
 }
@@ -121,6 +140,9 @@ body {
   animation: float 20s infinite;
   z-index: -1;
 }
+/* .pagebg{
+  background-color: var(--bg-primary);
+} */
 
 .orb1 {
   width: 500px;
@@ -205,7 +227,7 @@ nav {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
-  background: rgba(26, 31, 58, 0.7);
+  background: var(--bg-secondary);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50px;
@@ -293,9 +315,9 @@ nav a:hover::after {
   width: 450px;
   height: 450px;
   border-radius: 25% 0%;
-  background: linear-gradient(#000, #000) padding-box,
+  /* background: linear-gradient(#000, #000) padding-box,
               linear-gradient(90deg, #ff00c6, #00eaff, #ee5903) border-box;
-  animation: borderMove 3s linear infinite;
+  animation: borderMove 3s linear infinite; */
   overflow: hidden;
   border: 3px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 60px rgba(0, 212, 255, 0.3);
@@ -547,7 +569,7 @@ footer {
       
   border: 4px solid transparent;
   border-radius: 25% 0%;
-  background: linear-gradient(#000, #000) padding-box,
+  background: linear-gradient(rgb(var(--card-bg)), rgb(var(--card-bg))) padding-box,
               linear-gradient(90deg, #ff00c6, #00eaff, #ee5903) border-box;
   animation: borderMove 3s linear infinite;
       overflow: hidden;
@@ -602,3 +624,118 @@ footer {
       0%, 100% { transform: scale(1); opacity: 0.4; }
       50% { transform: scale(1.1); opacity: 0.6; }
     }
+.project-card {
+  position: relative;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  min-width: 320px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  transition: background 0.5s ease;
+}
+
+.project-card:hover .card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  z-index: 2;
+  transition: transform 0.5s ease;
+}
+
+.project-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  margin: 0 0 12px 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-title {
+  transform: translateY(-8px);
+}
+
+.project-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e5e5e5;
+  margin: 0 0 16px 0;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+}
+
+.project-card:hover .project-desc {
+  opacity: 1;
+}
+
+.accent-line {
+  height: 4px;
+  width: 0;
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+.project-card:hover .accent-line {
+  width: 80px;
+}
+
+.shine-effect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform: skewX(-12deg) translateX(-200%);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .shine-effect {
+  opacity: 1;
+  animation: shine 1s ease;
+}
+
+@keyframes shine {
+  from {
+    transform: skewX(-12deg) translateX(-200%);
+  }
+  to {
+    transform: skewX(-12deg) translateX(200%);
+  }
+}

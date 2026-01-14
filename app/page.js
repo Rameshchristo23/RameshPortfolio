@@ -7,11 +7,13 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import PageWrapper from "@/components/PageWrapper";
 import content from "@/data/content.json";
 import Link from "next/link";
+import GlassCube from "@/components/GlassCube";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HomePage() {
   useEffect(() => {
+  const ctx = gsap.context(() => {
     // Hero Animations
     gsap.from(".line-1", {
       opacity: 0,
@@ -45,7 +47,7 @@ export default function HomePage() {
       ease: "back.out(1.7)",
     });
 
-    // Navbar entrance
+    // Navbar
     gsap.from("nav", {
       opacity: 0,
       y: -50,
@@ -54,12 +56,13 @@ export default function HomePage() {
       ease: "power4.out",
     });
 
-    // Horizontal Scroll (Projects)
+    // Horizontal Scroll
     const scrollContainer = document.querySelector(".horizontal-scroll");
 
     if (scrollContainer) {
       gsap.to(".horizontal-scroll", {
-        x: () => -(scrollContainer.scrollWidth - window.innerWidth + 100),
+        x: () =>
+          -(scrollContainer.scrollWidth - window.innerWidth + 100),
         ease: "none",
         scrollTrigger: {
           trigger: ".horizontal-wrapper",
@@ -70,7 +73,14 @@ export default function HomePage() {
         },
       });
     }
-  }, []);
+  });
+
+  return () => {
+    ctx.revert(); // IMPORTANT: Clean up GSAP animations when leaving the page
+    ScrollTrigger.killAll(); // Optional but recommended for pages with multiple triggers
+  };
+}, []);
+
 
   return (
     <PageWrapper>
@@ -87,7 +97,7 @@ export default function HomePage() {
             </h2>
 
             <p className="line-2 text-gray-300">
-              {content.personal.role} • UI Animator • GSAP Specialist
+              {content.personal.role} 
             </p>
 
             <Link className="btn line-3" href="/projects">
@@ -97,11 +107,12 @@ export default function HomePage() {
 
           {/* HERO IMAGE */}
           <div className="hero-image">
-            <div className="hero-image-bg"></div>
+            {/* <div className="hero-image-bg"></div> */}
 
-            <div className="hero-image-wrapper">
+            {/* <div className="hero-image-wrapper">
               <img src={content.hero?.image || "/assets/ram.png"} alt="Ramesh" />
-            </div>
+            </div> */}
+             <GlassCube image={content.hero?.image || "/assets/ram.png"} />
           </div>
         </div>
 
@@ -118,12 +129,26 @@ export default function HomePage() {
         </h2>
 
         <div className="horizontal-scroll">
-          {content.projects.map((project, index) => (
-            <div key={index} className="h-card">
-              {project}
-            </div>
-          ))}
-        </div>
+  {content.projects.map((project, index) => (
+   <div
+  key={index}
+  className="project-card"
+  style={{
+    backgroundImage: `url(${project.image})`,
+  }}
+>
+  <div className="card-overlay"></div>
+  
+  <div className="card-content">
+    <h3 className="project-title">{project.name}</h3>
+    <p className="project-desc">{project.description}</p>
+    <div className="accent-line"></div>
+  </div>
+  
+  <div className="shine-effect"></div>
+</div>
+  ))}
+</div>
       </section>
 
       {/* FOOTER */}

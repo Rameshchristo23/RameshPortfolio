@@ -72,12 +72,12 @@ const TimelineItem = styled(motion.div)`
 
 // Card Container
 const Card = styled.div`
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(var(--card-bg), 0.2);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  // border: 1px solid rgba(var(--card-bg), 0.2);
   padding: 24px;
   border-radius: 20px;
-  color: white;
+  color: var(--text);
 `;
 
 // Title Dot
@@ -112,7 +112,7 @@ const Period = styled.p`
 
 // Role Text
 const Role = styled.p`
-  color: #d1d5db;
+  color: var(--text-dim);
   margin-top: 0.25rem;
 `;
 
@@ -121,7 +121,7 @@ const DetailsList = styled.ul`
   list-style-type: disc;
   margin-left: 1.5rem;
   margin-top: 1rem;
-  color: #d1d5db;
+  color: var(--text-dim);
 
   li {
     margin-bottom: 0.5rem;

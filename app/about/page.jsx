@@ -113,7 +113,7 @@ const ProfileCard = styled.div`
   margin-bottom: 3rem;
   padding: 2rem;
   border-radius: 1.5rem;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+  background: rgba(var(--card-bg), 0.2);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -128,7 +128,7 @@ const ProfileCard = styled.div`
   p {
     font-size: clamp(1rem, 2vw, 1.25rem);
     line-height: 1.8;
-    color: #e5e7eb;
+    color: var(--text);
   }
 `;
 
@@ -141,7 +141,7 @@ const InfoGrid = styled.div`
 const InfoCard = styled.div`
   padding: 1.5rem;
   border-radius: 1rem;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+  background: rgba(var(--card-bg), 0.2);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
@@ -188,14 +188,14 @@ const InfoText = styled.div`
 
 const Label = styled.p`
   font-size: 0.875rem;
-  color: #9ca3af;
+  color: var(--text-dim);
   margin-bottom: 0.25rem;
 `;
 
 const Value = styled.p`
   font-size: clamp(0.875rem, 1.5vw, 1.125rem);
   font-weight: 600;
-  color: white;
+  color: var(--text);
 `;
 
 const Divider = styled.div`

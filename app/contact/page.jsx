@@ -38,7 +38,7 @@ const float = keyframes`
 // Styled Components
 const PageContainer = styled.div`
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  // background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   padding: 8rem 1.5rem 5rem;
 `;
 
@@ -72,13 +72,13 @@ const InfoSection = styled.div`
 `;
 
 const InfoCard = styled.div`
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--card-bg), 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   padding: 1.25rem 1.5rem;
   font-size: 1.125rem;
-  color: white;
+  color: var(--text);
   transition: all 0.3s ease;
   animation: ${fadeInUp} 0.8s ease ${props => props.delay || '0s'} both;
   
@@ -107,16 +107,16 @@ const InputField = styled.input`
   width: 100%;
   padding: 1rem 1.25rem;
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--card-bg), 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  color: var(--text);
   font-size: 1rem;
   transition: all 0.3s ease;
   box-sizing: border-box;
   
   &::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(var(--text-dim), 0.5);
   }
   
   &:focus {
@@ -131,10 +131,10 @@ const TextArea = styled.textarea`
   width: 100%;
   padding: 1rem 1.25rem;
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--card-bg), 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  color: var(--text);
   font-size: 1rem;
   min-height: 10rem;
   resize: vertical;
@@ -143,7 +143,7 @@ const TextArea = styled.textarea`
   box-sizing: border-box;
   
   &::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(var(--text-dim), 0.5);
   }
   
   &:focus {

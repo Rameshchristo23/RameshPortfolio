@@ -10,7 +10,7 @@ const Header = styled.header`
   top: 0;
   z-index: 1000;
   // background: rgba(26, 31, 58, 0.8);
-  backdrop-filter: blur(24px);
+  // backdrop-filter: blur(24px);
   // border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
@@ -122,7 +122,11 @@ export default function Navbar() {
           {/* <li><Link href="/education">Education</Link></li> */}
           {/* <li><Link href="/experience">Experience</Link></li> */}
           <li><Link href="/projects">Projects</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
+          {/* <li><Link href="/contact">Contact</Link></li> */}
+           <li><a target="_blank" href="/assets/ramesh.pdf">Resume / CV</a></li>
+  <li><Link href="/awards">Achievements</Link></li>
+  <li><Link href="/testimonial">Testimonials</Link></li>
+  <li><Link href="/contact">Contact</Link></li>
         </DesktopMenu>
 
         {/* Mobile Hamburger */}
@@ -145,7 +149,10 @@ export default function Navbar() {
           {/* <Link href="/education" onClick={() => setOpen(false)}>Education</Link> */}
           {/* <Link href="/experience" onClick={() => setOpen(false)}>Experience</Link> */}
           <Link href="/projects" onClick={() => setOpen(false)}>Projects</Link>
-          <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
+          {/* <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link> */}
+           <Link href="/achievements" onClick={() => setOpen(false)}>Achievements</Link>
+    <Link href="/testimonials" onClick={() => setOpen(false)}>Testimonials</Link>
+    <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
         </MobileMenu>
       )}
     </Header>
